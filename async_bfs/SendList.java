@@ -1,10 +1,8 @@
 package async_bfs;
 /*
  * Team Members:
- * Sujal Patel (ssp150930)
- * Harshil Shah (hxs155030)
- * Sagar Mehta (sam150930)
- * 
+ * Tanu Rampal (txr180007)
+ * Viraj Mavani (vdm180000)
  * This class represents the SendList which is the data structure that holds the messages of the process, until they are ready to send.
  */
 public class SendList {

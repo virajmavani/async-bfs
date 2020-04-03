@@ -1,10 +1,8 @@
 package async_bfs;
 /**
  * Team Members:
- * Sujal Patel (ssp150930)
- * Harshil Shah (hxs155030)
- * Sagar Mehta (sam150930)
- *
+ * Tanu Rampal (txr180007)
+ * Viraj Mavani (vdm180000)
  * This class is the object for edges. 
  */
 public class Edge {

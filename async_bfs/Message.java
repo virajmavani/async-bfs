@@ -1,10 +1,8 @@
 package async_bfs;
 /*
  * Team Members:
- * Sujal Patel (ssp150930)
- * Harshil Shah (hxs155030)
- * Sagar Mehta (sam150930)
- * 
+ * Tanu Rampal (txr180007)
+ * Viraj Mavani (vdm180000)
  * This represents a message which has processId, message type, distance from the root, and debug character information.
  */
 public class Message {

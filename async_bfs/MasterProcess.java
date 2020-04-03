@@ -1,10 +1,8 @@
 package async_bfs;
 /*
  * Team Members:
- * Sujal Patel (ssp150930)
- * Harshil Shah (hxs155030)
- * Sagar Mehta (sam150930)
- * 
+ * Tanu Rampal (txr180007)
+ * Viraj Mavani (vdm180000)
  * This class is the main class. It acts as master thread that synchronizes rounds.
  */
 import java.io.BufferedReader;
@@ -279,22 +277,6 @@ public class MasterProcess {
 			}
 			
 			int totalMessages = 0;
-			// Printing nodes with parent and distance from root.
-			for(int i = 0;i<n;i++){
-				if(i!=rootProcessID)
-				System.out.println("Process No: "+i+" Parent: " +process[i].getParentID()+ " distance: " + process[i].getDistanceFromRoot());
-				totalMessages += process[i].messageCount;
-				if(outputList.containsKey(process[i].getParentID())){
-					ArrayList<Integer> a = outputList.get(process[i].getParentID());
-					a.add(i);
-					outputList.replace(process[i].getParentID(), a);
-				}else{
-					ArrayList<Integer> a= new ArrayList<>();
-					a.add(i);
-					outputList.put(process[i].getParentID(), a);
-				}
-			}
-			
 			System.out.println("Average messages sent per Edge: " + String.valueOf((float) totalMessages / numEdges));
 			// Printing adjacency list
 			System.out.println("******************* Adjacency List *******************");
