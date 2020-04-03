@@ -1,0 +1,11 @@
+Read Me
+Team Members:
+ * Tanu Rampal (txr180007)
+ * Viraj Mavani (vdm180000)
+
+1. Execute the following for compliling code:
+    javac async_bfs/*.java -d .
+
+2. Execute the following for running the compiled code
+    java async_bfs.MasterProcess input.txt
+    //The input file to be in the current working directory (async_bfs).
