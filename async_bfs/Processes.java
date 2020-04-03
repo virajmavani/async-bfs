@@ -55,6 +55,8 @@ public class Processes implements Runnable {
 	int roundNo = 0;
 	private boolean debugStatements = false;
 
+	public int messageCount;
+
 	// Constructor
 	public Processes(int processId) {
 		this.ProcessId = processId;
@@ -68,6 +70,7 @@ public class Processes implements Runnable {
 		this.parentID = Integer.MIN_VALUE;
 		this.firstRound = true;
 		this.rootID = MasterProcess.rootProcessID;
+		this.messageCount = 0;
 		if (this.ProcessId == MasterProcess.rootProcessID) {
 			this.distanceFromRoot = 0;
 			this.isRoot = true;
@@ -233,6 +236,7 @@ public class Processes implements Runnable {
 
 						try {
 							message = qIn.take();
+							this.messageCount += 1;
 							// Explore message handler
 							if (message.getMessageType() == Message.MessageType.EXPLORE) {
 								if (this.debugStatements)

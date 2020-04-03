@@ -203,10 +203,19 @@ public class MasterProcess {
 			rootId = new Integer(input.get(1));
 			
 			// Saving Edge weights
+			int numEdges = 0;
 			String[][] neighbours = new String[n][n];
 			for (int i = 2; i < n + 2; i++) {
-				neighbours[i - 2] = input.get(i).trim().split(" ");
+				neighbours[i - 2] = input.get(i).trim().split(", ");
+				for ( String e : neighbours[i - 2] ) {
+					if ( e.equals("1") ) {
+						numEdges += 1;
+					}
+				}
 			}
+
+			// As bidrectional, we divide by 2
+			numEdges /= 2;
 			
 			// Setup the processes.
 			int MasterProcessID = -1;
@@ -269,11 +278,12 @@ public class MasterProcess {
 				}
 			}
 			
+			int totalMessages = 0;
 			// Printing nodes with parent and distance from root.
 			for(int i = 0;i<n;i++){
 				if(i!=rootProcessID)
 				System.out.println("Process No: "+i+" Parent: " +process[i].getParentID()+ " distance: " + process[i].getDistanceFromRoot());
-	
+				totalMessages += process[i].messageCount;
 				if(outputList.containsKey(process[i].getParentID())){
 					ArrayList<Integer> a = outputList.get(process[i].getParentID());
 					a.add(i);
@@ -285,6 +295,7 @@ public class MasterProcess {
 				}
 			}
 			
+			System.out.println("Average messages sent per Edge: " + String.valueOf((float) totalMessages / numEdges));
 			// Printing adjacency list
 			System.out.println("******************* Adjacency List *******************");
 			for (Map.Entry<Integer, ArrayList<Integer>> entry : outputList.entrySet()) {
