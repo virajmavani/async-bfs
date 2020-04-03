@@ -269,7 +269,7 @@ public class Processes implements Runnable {
 							if (id != this.parentID) {
 								int tts;
 								if (lastMessageSentTimer.containsKey(id)) {
-									tts = timeToSendMessage.nextInt(18) + 1;
+									tts = timeToSendMessage.nextInt(15) + 1;
 									if (tts <= lastMessageSentTimer.get(id))
 									{
 										tts += (lastMessageSentTimer.get(id) - tts + 1);
@@ -279,7 +279,7 @@ public class Processes implements Runnable {
 												+ this.getProcessId());
 									lastMessageSentTimer.replace(id, tts);
 								} else {
-									tts = timeToSendMessage.nextInt(18) + 1;
+									tts = timeToSendMessage.nextInt(15) + 1;
 									if (this.debugStatements)
 										System.out.println("*** NACK 2 *** TTS: " + tts + " TO: " + id + " FROM: "
 												+ this.getProcessId());
@@ -317,7 +317,7 @@ public class Processes implements Runnable {
 							int tts;
 							int nbr_id = e.getNeighbour(this).getProcessId();
 							if (lastMessageSentTimer.containsKey(nbr_id)) {
-								tts = timeToSendMessage.nextInt(18) + 1;
+								tts = timeToSendMessage.nextInt(15) + 1;
 								if (tts <= lastMessageSentTimer.get(nbr_id))
 								{
 									tts += (lastMessageSentTimer.get(nbr_id) - tts + 1);
@@ -327,7 +327,7 @@ public class Processes implements Runnable {
 											+ this.getProcessId());
 								lastMessageSentTimer.replace(nbr_id, tts);
 							} else {
-								tts = timeToSendMessage.nextInt(18) + 1;
+								tts = timeToSendMessage.nextInt(15) + 1;
 								if (this.debugStatements)
 									System.out.println("**  EXPLORE 2 ** TTS: " + tts + " TO: " + nbr_id + " FROM: "
 											+ this.getProcessId());
@@ -377,7 +377,7 @@ public class Processes implements Runnable {
 									int nbr_id = ngbhr.getProcessId();
 									int tts;
 									if (lastMessageSentTimer.containsKey(nbr_id)) {
-										tts = timeToSendMessage.nextInt(18) + 1;
+										tts = timeToSendMessage.nextInt(15) + 1;
 										if (tts <= lastMessageSentTimer.get(nbr_id))
 										{
 											tts += (lastMessageSentTimer.get(nbr_id) - tts + 1);
@@ -387,7 +387,7 @@ public class Processes implements Runnable {
 													+ this.getProcessId());
 										lastMessageSentTimer.replace(nbr_id, tts);
 									} else {
-										tts = timeToSendMessage.nextInt(18) + 1;
+										tts = timeToSendMessage.nextInt(15) + 1;
 										if (this.debugStatements)
 											System.out.println("*** DONE 2 *** TTS: " + tts + " TO: " + nbr_id
 													+ " FROM: " + this.getProcessId());
