@@ -277,6 +277,21 @@ public class MasterProcess {
 			}
 			
 			int totalMessages = 0;
+
+			// Printing nodes with parent and distance from root.
+			for ( int i = 0; i < n; i++ ) {
+				totalMessages += process[i].messageCount;
+				if(outputList.containsKey(process[i].getParentID())){
+					ArrayList<Integer> a = outputList.get(process[i].getParentID());
+					a.add(i);
+					outputList.replace(process[i].getParentID(), a);
+				}else{
+					ArrayList<Integer> a= new ArrayList<>();
+					a.add(i);
+					outputList.put(process[i].getParentID(), a);
+				}
+			}
+
 			System.out.println("Average messages sent per Edge: " + String.valueOf((float) totalMessages / numEdges));
 			// Printing adjacency list
 			System.out.println("******************* Adjacency List *******************");
